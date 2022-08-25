@@ -340,6 +340,7 @@ export default function searchInPage(searchTarget: SearchTarget, options?: InPag
         options.searchWindowWebview = document.createElement('webview');
         options.searchWindowWebview.className = 'electron-in-page-search-window';
         options.searchWindowWebview.setAttribute('nodeintegration', '');
+        options.searchWindowWebview.setAttribute("webpreferences", "contextIsolation=false");
         options.searchWindowWebview.style.outline = '0';
     }
 
@@ -360,7 +361,7 @@ export default function searchInPage(searchTarget: SearchTarget, options?: InPag
             wc.openDevTools({ mode: 'detach' });
         } else {
             wv.addEventListener('dom-ready', () => {
-                wv.getWebContents().openDevTools({ mode: 'detach' });
+                wv.openDevTools({ mode: 'detach' });
             });
         }
     }
