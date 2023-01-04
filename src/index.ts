@@ -361,7 +361,7 @@ export default function searchInPage(searchTarget: SearchTarget, options?: InPag
             wc.openDevTools({ mode: 'detach' });
         } else {
             wv.addEventListener('dom-ready', () => {
-                wv.openDevTools({ mode: 'detach' });
+                wv.getWebContents().openDevTools({ mode: 'detach' });
             });
         }
     }
